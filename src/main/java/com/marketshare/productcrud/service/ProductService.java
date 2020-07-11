@@ -1,5 +1,6 @@
 package com.marketshare.productcrud.service;
 
+import com.marketshare.productcrud.converter.ProductConverter;
 import com.marketshare.productcrud.domain.Product;
 import com.marketshare.productcrud.dto.ProductDTO;
 import com.marketshare.productcrud.repository.ProductRepository;
@@ -14,7 +15,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
     public ProductDTO save(ProductDTO productDTO) {
-        Product product = productDTO.toDomain();
+        Product product = ProductConverter.toDomain(productDTO);
         product.setCreationDate(LocalDateTime.now());
         Product savedProduct = productRepository.save(product);
         productDTO.setId(savedProduct.getId());

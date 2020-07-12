@@ -3,10 +3,11 @@ package com.marketshare.productcrud.dto;
 import com.marketshare.productcrud.domain.Product;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-import javax.persistence.Column;
 import java.math.BigDecimal;
 
+@ToString
 public class ProductDTO {
     @Getter
     @Setter
@@ -27,14 +28,4 @@ public class ProductDTO {
     @Getter
     @Setter
     private BigDecimal price;
-
-    public Product toDomain() {
-        Product product = new Product();
-        product.setName(name);
-        product.setDescription(description);
-        product.setBrand(brand);
-        product.setPrice(price);
-
-        return product;
-    }
 }

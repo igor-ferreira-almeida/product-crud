@@ -22,7 +22,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<String> getByName(@RequestParam(value = "name", defaultValue = "") Long id) {
+    public ResponseEntity<String> getByName(@RequestParam(value = "name", defaultValue = "") String name) {
         return ResponseEntity.ok("Hello World!");
     }
 
